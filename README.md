@@ -10,7 +10,6 @@ This project demonstrates the use of Generative AI with the Gemini API integrate
 -   [Usage](#usage)
 -   [API Endpoints](#api-endpoints)
 -   [Dependencies](#dependencies)
--   [License](#license)
 
 ## Introduction
 
@@ -60,7 +59,7 @@ To get started with this project, follow the steps below:
 
 ## Usage
 
-Once the Flask server is running, navigate to http://127.0.0.1:5000/ in your web browser. You can use the provided interface to generate content by interacting with the Generative AI model through the Gemini API.
+Once the Flask server is running, navigate to http://127.0.0.1:9000/ in your web browser. You can use the provided interface to generate content by interacting with the Generative AI model through the Gemini API.
 
 ## API Endpoints
 
