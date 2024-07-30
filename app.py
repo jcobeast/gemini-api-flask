@@ -1,11 +1,16 @@
 from flask import Flask, request, render_template, jsonify
 import google.generativeai as genai
 import markdown2
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 
 # Configure the generative AI API key
-genai.configure(api_key="AIzaSyA0eg75d9EhcCPkZ5KaewkEd8sbTgAL_9M")
+genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
 
 # Define the generation configuration for the model
 generation_config = {
