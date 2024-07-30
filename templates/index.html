@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Gemini Template</title>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{{ url_for('static', filename='style.css') }}"
+		/>
+	</head>
+	<body>
+		<!-- Question form -->
+		<form id="questionForm" aria-labelledby="questionFormLabel">
+			<label id="questionFormLabel" for="question"
+				>Enter your question:</label
+			>
+			<input
+				type="text"
+				id="question"
+				name="question"
+				required
+				aria-required="true"
+			/>
+			<button type="button" onclick="generate()">Generate</button>
+			<p id="errorMessage" style="color: red; display: none">
+				Please enter a question.
+			</p>
+		</form>
+
+		<!-- Loading indicator -->
+		<div id="loading" aria-live="polite" style="display: none">
+			<img
+				src="{{ url_for('static', filename='loading.gif') }}"
+				alt="Loading..."
+				width="150"
+				height="150"
+			/>
+		</div>
+
+		<!-- Response container -->
+		<div id="responseContainer" style="display: none">
+			<h1>Generated Response:</h1>
+			<div id="responseContent"></div>
+		</div>
+
+		<!-- jQuery library -->
+		<script
+			src="https://code.jquery.com/jquery-3.7.1.min.js"
+			integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+			crossorigin="anonymous"
+		></script>
+
+		<!-- Call API script -->
+		<script src="{{ url_for('static', filename='app.js') }}"></script>
+	</body>
+</html>

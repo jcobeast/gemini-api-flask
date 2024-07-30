@@ -1,1 +1,1 @@
-# Generative AI powered by Python Flask
+Gemini APi integration with Flask

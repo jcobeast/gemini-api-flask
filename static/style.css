@@ -1,0 +1,92 @@
+:root {
+	--background-color: #e2e2b6;
+	--text-color: #021526;
+	--primary-color: #03346e;
+	--hover-color: #6eacda;
+	--response-background: #faebd7;
+	--response-title-bg: #6eacda;
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--text-color);
+	text-align: center;
+	margin: 0;
+	padding: 20px;
+	font-family: Arial, sans-serif;
+}
+
+form {
+	margin-top: 20px;
+}
+
+label,
+input,
+button {
+	font-size: 18px;
+	margin: 10px;
+	padding: 8px;
+}
+
+input {
+	width: 300px;
+}
+
+button {
+	background-color: var(--primary-color);
+	color: #fff;
+	border-radius: 25px;
+	border: none;
+	padding: 12px 24px;
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+	background-color: var(--hover-color);
+}
+
+#responseContainer {
+	display: none;
+	width: 600px;
+	margin: 0 auto;
+	margin-top: 20px;
+	text-align: left;
+	animation: bounceIn 1s ease-in-out;
+}
+
+#responseContainer h1 {
+	background-color: var(--response-title-bg);
+	padding: 10px;
+	border-radius: 5px;
+}
+
+#responseContent {
+	background-color: var(--response-background);
+	padding: 10px;
+}
+
+#responseContent h2 {
+	color: var(--primary-color);
+	margin-top: 20px;
+}
+
+#responseContent p {
+	margin: 10px 0;
+}
+
+#responseContent li {
+	list-style-type: none;
+	margin-left: 20px;
+}
+
+@keyframes bounceIn {
+	from {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
