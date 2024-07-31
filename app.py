@@ -69,16 +69,14 @@ def generate():
         generated_text = response.text
         
         # Format the response into HTML
-        formatted_response = format_response(generated_text)
+        formatted_response = markdown2.markdown(generated_text)
         
         # Return the response as JSON
         return jsonify({'response': formatted_response})
     except Exception as e:
         app.logger.error(f"Error generating response: {e}")
         return jsonify({'error': 'Internal Server Error'}), 500
-
-def format_response(response_text):
-    return markdown2.markdown(response_text)
+    
 
 if __name__ == '__main__':
     app.run(debug=True, port=9000)
