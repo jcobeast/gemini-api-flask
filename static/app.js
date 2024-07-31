@@ -1,12 +1,18 @@
 async function generate() {
-	const question = $("#question").val().trim();
+	const question = document.getElementById("question").value;
+	const errorMessage = document.getElementById("errorMessage");
+	const loading = document.getElementById("loading");
+	const responseContainer = document.getElementById("responseContainer");
+	const responseContent = document.getElementById("responseContent");
+
 	if (!question) {
-		$("#errorMessage").show();
+		errorMessage.style.display = "block";
 		return;
+	} else {
+		errorMessage.style.display = "none";
 	}
 
-	$("#errorMessage").hide();
-	$("#loading").show();
+	loading.style.display = "block";
 
 	try {
 		const response = await fetch("/generate", {
@@ -17,22 +23,19 @@ async function generate() {
 			body: JSON.stringify({ question }),
 		});
 
-		const data = await response.json();
+		const result = await response.json();
 
-		$("#loading").hide();
 		if (response.ok) {
-			$("#responseContent").html(data.response);
+			responseContent.innerHTML = result.response;
+			responseContainer.style.display = "block";
 		} else {
-			$("#responseContent").html(
-				"<p>An error occurred. Please try again.</p>"
-			);
+			responseContent.innerHTML = `<p style="color: red">${result.error}</p>`;
+			responseContainer.style.display = "block";
 		}
-		$("#responseContainer").show();
 	} catch (error) {
-		$("#loading").hide();
-		$("#responseContent").html(
-			"<p>An error occurred. Please try again.</p>"
-		);
-		$("#responseContainer").show();
+		responseContent.innerHTML = `<p style="color: red">Error: ${error.message}</p>`;
+		responseContainer.style.display = "block";
+	} finally {
+		loading.style.display = "none";
 	}
 }
