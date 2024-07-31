@@ -49,7 +49,7 @@ To get started with this project, follow the steps below:
 4. **Set up environment variables:**
 
     ```bash
-    GEMINI_API_KEY=your_gemini_api_key
+    GEMINI_API_KEY=your_gemini_api_key # Go to your .env file and change to your own API key
     ```
 
 5. **Run the flask application:**
