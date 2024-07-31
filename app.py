@@ -1,11 +1,16 @@
 from flask import Flask, request, render_template, jsonify
 import google.generativeai as genai
 import markdown2
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 
 # Configure the generative AI API key
-genai.configure(api_key="AIzaSyA0eg75d9EhcCPkZ5KaewkEd8sbTgAL_9M")
+genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
 
 # Define the generation configuration for the model
 generation_config = {
@@ -64,16 +69,14 @@ def generate():
         generated_text = response.text
         
         # Format the response into HTML
-        formatted_response = format_response(generated_text)
+        formatted_response = markdown2.markdown(generated_text)
         
         # Return the response as JSON
         return jsonify({'response': formatted_response})
     except Exception as e:
         app.logger.error(f"Error generating response: {e}")
         return jsonify({'error': 'Internal Server Error'}), 500
-
-def format_response(response_text):
-    return markdown2.markdown(response_text)
+    
 
 if __name__ == '__main__':
     app.run(debug=True, port=9000)

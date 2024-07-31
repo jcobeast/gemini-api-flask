@@ -1,8 +1,8 @@
 :root {
-	--background-color: #e2e2b6;
-	--text-color: #021526;
-	--primary-color: #03346e;
-	--hover-color: #6eacda;
+	--background-color: #252525;
+	--text-color: #0b1215; /* Obsidian */
+	--primary-color: #0c0c0c; /* Oil black */
+	--hover-color: #352f36; /* Lava black */
 	--response-background: #faebd7;
 	--response-title-bg: #6eacda;
 }
@@ -20,16 +20,19 @@ form {
 	margin-top: 20px;
 }
 
-label,
 input,
 button {
-	font-size: 18px;
+	font-size: 16px;
 	margin: 10px;
-	padding: 8px;
 }
 
 input {
-	width: 300px;
+	width: 450px;
+	border: none;
+	padding: 10px;
+	border-radius: 25px;
+	box-shadow: rgba(243, 243, 248, 0.322) 0px 2px 5px -1px,
+		rgba(209, 209, 209, 0.479) 0px 1px 3px -1px;
 }
 
 button {
@@ -37,7 +40,7 @@ button {
 	color: #fff;
 	border-radius: 25px;
 	border: none;
-	padding: 12px 24px;
+	padding: 10px 24px;
 	cursor: pointer;
 	transition: background-color 0.3s ease-in-out;
 }
@@ -73,11 +76,13 @@ button:hover {
 
 #responseContent p {
 	margin: 10px 0;
+	line-height: 1.2em;
 }
 
 #responseContent li {
 	list-style-type: none;
 	margin-left: 20px;
+	padding-bottom: 10px;
 }
 
 @keyframes bounceIn {
